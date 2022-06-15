@@ -52,7 +52,7 @@ function App() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get(`/api/categories`);
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
