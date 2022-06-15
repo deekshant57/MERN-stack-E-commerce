@@ -48,6 +48,7 @@ function App() {
   };
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
+  console.log(categories);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -153,13 +154,13 @@ function App() {
             <Nav.Item>
               <strong>Categories</strong>
             </Nav.Item>
-            {categories.map((category) => (
-              <Nav.Item key={category}>
+            {categories.map((el, i) => (
+              <Nav.Item key={i}>
                 <LinkContainer
-                  to={`/search?category=${category}`}
+                  to={`/search?category=${el.category}`}
                   onClick={() => setSidebarIsOpen(false)}
                 >
-                  <Nav.Link>{category}</Nav.Link>
+                  <Nav.Link>{el.category}</Nav.Link>
                 </LinkContainer>
               </Nav.Item>
             ))}
