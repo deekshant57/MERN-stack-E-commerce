@@ -148,9 +148,12 @@ export default function OrderScreen() {
       }
     } else {
       const loadPaypalScript = async () => {
-        const { data: clientId } = await axios.get("/api/keys/paypal", {
-          headers: { authorization: `Bearer ${userInfo.token}` },
-        });
+        const { data: clientId } = await axios.get(
+          "https://polar-temple-17359.herokuapp.com/api/keys/paypal",
+          {
+            headers: { authorization: `Bearer ${userInfo.token}` },
+          }
+        );
         paypalDispatch({
           type: "resetOptions",
           value: {
