@@ -53,7 +53,9 @@ function App() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`/api/categories`);
+        const { data } = await axios.get(
+          `https://polar-temple-17359.herokuapp.com/api/categories`
+        );
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
