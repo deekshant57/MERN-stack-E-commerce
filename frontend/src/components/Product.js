@@ -17,7 +17,9 @@ function Product(props) {
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(
+      `https://polar-temple-17359.herokuapp.com/api/products/${item._id}`
+    );
     if (data.countInStock < quantity) {
       window.alert("Sorry. Product is out of stock");
       return;
@@ -29,11 +31,16 @@ function Product(props) {
   };
 
   return (
-    <Card>
+    <Card style={{ height: "100%" }}>
       <Link to={`/product/${product.slug}`}>
-        <img src={product.image} className="card-img-top" alt={product.name} />
+        <img
+          src={product.image}
+          className="card-img-top"
+          style={{ height: "300px" }}
+          alt={product.name}
+        />
       </Link>
-      <Card.Body>
+      <Card.Body className="d-flex flex-column">
         <Link to={`/product/${product.slug}`}>
           <Card.Title>{product.name}</Card.Title>
         </Link>
@@ -44,7 +51,9 @@ function Product(props) {
             Out of stock
           </Button>
         ) : (
-          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+          <Button onClick={() => addToCartHandler(product)} className="mt-auto">
+            Add to cart
+          </Button>
         )}
       </Card.Body>
     </Card>
