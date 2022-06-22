@@ -7,7 +7,7 @@ _To start with the Project run the following command in terminal
 
 > > ⌘ **npm start**
 
-> After that you are ready to go and explore our project.
+> After that you are ready to go and explore the project.
 
 ---
 
